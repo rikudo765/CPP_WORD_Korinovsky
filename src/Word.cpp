@@ -2,7 +2,9 @@
 
 void Word :: input_word(){
   cout << "Введите текст : " << endl;
-  cin >> word;
+  string tmp;
+  cin >> tmp;
+  strcpy(word, tmp);
 }
 
 void Word :: output_word(){
@@ -11,7 +13,9 @@ void Word :: output_word(){
 
 void Word :: input_word_from_file(string filename) {
   fstream fin(filename);
-  fin >> word;
+  string tmp;
+  fin >> tmp;
+  strcpy(word, tmp);
 }
 
 void Word :: output_word_to_file(string filename) {
@@ -22,7 +26,7 @@ void Word :: output_word_to_file(string filename) {
 void Word :: split_word(){
   char sub[SUBL];
   memset(sub,'\0',SUBL);//заполняем буфер нулями
-  strcpy (buf,word);
+  strcpy(buf,word);//копируем слово в буфер
   int pos = 0, len = strlen(word), i = 1;
   while(i < len){
     if(i+2 < len){
